@@ -53,6 +53,8 @@ npm install
 
 **7. Edit `.env` file in project**
 
+Open the .env file in your Laravel project and update the following variables to match your local database configuration:
+
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -62,8 +64,10 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
--   Ensure that the database exists
--   Ensure that the credentials are correct
+Ensure that:
+
+-   The database specified in **DB_DATABASE** exists in your MySQL server.
+-   The credentials (**DB_USERNAME** and **DB_PASSWORD**) are correct for accessing the database.
 
 **8. Run migrations**
 
@@ -77,7 +81,7 @@ php artisan migrate
 php artisan serve
 ```
 
-**10. Start the development server (Frontend)**
+**10. Start the development server on a seperate terminal (Frontend)**
 
 ```
 npm run dev
