@@ -47,19 +47,8 @@ class ProductController extends Controller
 
     public function createProduct(Request $request)
     {
-        // Input validation
-        $request->validate([
-            'name' => ['required', 'string'],
-            'price' => ['required', 'numeric'],
-            'details' => ['required', 'string'],
-            'publish' => 'required | in:yes, no'
-        ]);
-
-        // Input Sanitization
+        // Get request data
         $inputs = $request->all();
-        $inputs['name'] = strip_tags($inputs['name']);
-        $inputs['price'] = strip_tags($inputs['price']);
-        $inputs['details'] = strip_tags($inputs['details']);
 
         // Map publish data to Boolean
         $inputs['publish'] = $inputs['publish'] === 'yes' ? true : false;
@@ -94,19 +83,8 @@ class ProductController extends Controller
 
     public function editProduct(Product $product, Request $request)
     {
-        // Input validation
-        $request->validate([
-            'name' => ['required', 'string'],
-            'price' => ['required', 'numeric'],
-            'details' => ['required', 'string'],
-            'publish' => ['required']
-        ]);
-
-        // Input Sanitization
+        // Get request data
         $inputs = $request->all();
-        $inputs['name'] = strip_tags($inputs['name']);
-        $inputs['price'] = strip_tags($inputs['price']);
-        $inputs['details'] = strip_tags($inputs['details']);
 
         // Map publish data to Boolean
         $inputs['publish'] = $inputs['publish'] === 'yes' ? true : false;
